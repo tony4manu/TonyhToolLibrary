@@ -1,9 +1,10 @@
 /*
-FileReaderTemplate.java
+TextFileReaderWithInputParamsTemplate.java
 TonyH
 20200508
 
-Read/print contents of a text file 
+Takes input filename as command line parameter.
+Read contents of a text file display on the console. 
 Then Print list of environment variables
 
 Comments:
@@ -16,7 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class FileReaderTemplate {
+public class TextFileReaderWithInputParamsTemplate {
 	
 	private static void printEnvironmentVariables() {
 		System.out.println("# Print environment varables using a Lambda expression:");
@@ -27,9 +28,7 @@ public class FileReaderTemplate {
 		System.out.println("\n\n");
 	}
 
-	public static void main(String[] args) throws IOException, FileNotFoundException {
-		// Input file name
-		String inFile = "./src/org/tonyh/file/io/examples/FileReaderTemplate.java";
+	public static void textFileReader(String inFile) throws IOException, FileNotFoundException {
 		
 		FileReader file = new FileReader(inFile); 
 		BufferedReader buff = new BufferedReader(file);
@@ -45,8 +44,18 @@ public class FileReaderTemplate {
 			}
 		}
 		buff.close();
-		//--------<< FileReader End >>-------------------------------------------------------------
-		
+	}
+
+	public static void main(String[] args)
+			throws FileNotFoundException, IOException {
+		if (args.length == 0) {
+			// Default input file if none entered on command line.
+			String inFile = "./src/org/tonyh/file/io/examples/FileReaderTemplate.java";
+			textFileReader(inFile);
+		} else {
+			textFileReader(args[0]);
+		}
+
 		printEnvironmentVariables();
 	}
 
