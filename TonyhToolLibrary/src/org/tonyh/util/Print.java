@@ -20,13 +20,16 @@ using Java SE5 static imports:
 
 package org.tonyh.util;
 
-//import java.io.*;
 import java.io.PrintStream;
 
 /**
- * Print - Printing shorthand to print anything, either with a 
- * newline (print()) or without a newline (printnb()). 
- * The intent is for  to be used as a "static" import.
+ * Print methods that can be used without qualifiers, 
+ * using Java SE5 static imports: </br>
+ * Printing shorthand to print anything, either with a 
+ * newline (print()) or without a newline (printnb()). </br>
+ * </br>
+ * The intent is for it to be used as a "static" import. </br>
+ *  Eg., import static my.domain.util.Print.*;
  * 
  * @author Bruce Eckel, 2006.
  */
@@ -59,7 +62,7 @@ public class Print {
 	 * The Java SE5 printf() (from the C Programming Language):
 	 * @param format
 	 * @param args
-	 * @return
+	 * @return  output formatted using args
 	 */
 	public static PrintStream printf(String format, Object... args) {
 		return System.out.printf(format, args);
